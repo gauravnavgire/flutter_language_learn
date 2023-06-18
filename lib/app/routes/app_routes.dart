@@ -13,6 +13,7 @@ abstract class Routes {
 abstract class _Paths {
   _Paths._();
   static const HOME = '/home';
+  static const LESSON_LIST = '/lesson_list';
   static const LESSON = '/lesson';
   static const VOCABULARY = '/vocabulary';
   static const QUIZ = '/quiz';

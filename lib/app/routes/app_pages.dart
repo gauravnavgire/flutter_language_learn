@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/lesson/bindings/lesson_binding.dart';
+import '../modules/lesson/views/lesson_list_view.dart';
 import '../modules/lesson/views/lesson_view.dart';
 import '../modules/progress/bindings/progress_binding.dart';
 import '../modules/progress/views/progress_view.dart';
@@ -23,6 +24,11 @@ class AppPages {
       name: _Paths.HOME,
       page: () => const HomeView(),
       binding: HomeBinding(),
+    ),
+        GetPage(
+      name: _Paths.LESSON_LIST,
+      page: () => const LessonList(),
+      binding: LessonBinding(),
     ),
     GetPage(
       name: _Paths.LESSON,

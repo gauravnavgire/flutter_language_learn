@@ -4,21 +4,35 @@ import 'package:get/get.dart';
 
 import '../controllers/lesson_controller.dart';
 
+final staticAnchorKey = GlobalKey();
+
 class LessonView extends GetView<LessonController> {
   const LessonView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final LessonController lessonCntlr = Get.put(LessonController());
+    var langauge = Get.parameters['language'];
+    var lessonNo = Get.parameters['lesson_number'];
+    var lesson = lessonCntlr.getLessonForLang(langauge!, int.parse(lessonNo!));
+
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('LessonView'),
-        centerTitle: true,
-      ),
-      body: const Center(
-        child: Text(
-          'LessonView is working',
-          style: TextStyle(fontSize: 20),
+        appBar: AppBar(
+          title: Text('Lesson Number ${lesson?.lessonNo}'),
+          centerTitle: true,
         ),
-      ),
-    );
+        body: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Center(
+                  child: Text('${lesson?.lessonContent}'),
+              )
+            ]));
+
   }
+
+
+
+}
+
+class $ {
 }

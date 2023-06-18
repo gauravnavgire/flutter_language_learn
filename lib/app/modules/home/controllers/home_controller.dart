@@ -1,3 +1,4 @@
+import 'package:flutter_language_learn/app/data/models/language.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
@@ -20,4 +21,8 @@ class HomeController extends GetxController {
   }
 
   void increment() => count.value++;
+
+  List<Language> supportedLanguage() {
+    return List.empty();
+  }
 }
