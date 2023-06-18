@@ -22,7 +22,8 @@ class LessonList extends GetView<LessonController> {
                 child: Container(
                   decoration: const BoxDecoration(
                       gradient: LinearGradient(
-                          colors: [Colors.blueAccent, Colors.lightBlueAccent])),
+                          colors: [Color.fromARGB(255, 230, 0, 88),
+                        Color.fromARGB(255, 255, 64, 93)])),
                   child: Padding(
                     padding: const EdgeInsets.all(1.0),
                     child: Card(

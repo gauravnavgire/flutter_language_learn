@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_language_learn/app/data/models/language.dart';
 
 import 'package:get/get.dart';
 
@@ -16,57 +17,99 @@ class HomeView extends GetView<HomeController> {
         title: const Text('Learn new Language'),
         centerTitle: true,
       ),
-      body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            Center(
-                child: Obx(() => const Text(
-                      'Select a Language to start learning',
-                      style: TextStyle(fontSize: 20),
-                    ))),
-            TextButton(
-              style: ButtonStyle(
-                foregroundColor:
-                    MaterialStateProperty.all<Color>(Colors.blue.shade800),
-              ),
-              onPressed: () {
-                Get.toNamed('/lesson_list',parameters: {"language": "ENGLISH"});
+      body:
+          Column(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+        const Center(
+            child: Text(
+          'Select a Language to start learning',
+          style: TextStyle(fontSize: 20),
+        )),
+        TextButton(
+          style: ButtonStyle(
+            foregroundColor:
+                MaterialStateProperty.all<Color>(Colors.blue.shade800),
+          ),
+          onPressed: () {
+            Get.toNamed('/lesson_list', parameters: {"language": "ENGLISH"});
+          },
+          child: const Text('Learn English'),
+        ),
+        //  SizedBox(
+        //       height: 200,
+        //       width: 400,
+        //       child: ListView.builder(
+        //     scrollDirection: Axis.horizontal,
+        //     padding: const EdgeInsets.all(10.0),
+        //     itemBuilder: (BuildContext context, int index) {
+        //       if (index % 2 == 0) {
+        //         // return _buildCarousel(context, index ~/ 2);
+        //          return _buildCarousel(context, 1);
+        //       } else {
+        //         return const Divider();
+        //       }
+        //     },
+        //   )),
+        SizedBox(
+            height: 200,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 2,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: const BoxDecoration(
+                          gradient: LinearGradient(colors: [
+                        Color.fromARGB(255, 230, 0, 88),
+                        Color.fromARGB(255, 255, 64, 93)
+                      ])),
+                      child: Padding(
+                        padding: const EdgeInsets.all(1.0),
+                        child: Card(
+                          elevation: 10.0,
+                          shadowColor: Colors.amber.shade100,
+                          child: const SizedBox(
+                            width: 200,
+                            height: 400,
+                            child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('Quiz',
+                                      style: TextStyle(fontSize: 24.0)),
+                                  Text('Quiz', style: TextStyle(fontSize: 24.0))
+                                ]),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  onTap: () {
+                    Get.toNamed('/quiz', parameters: {"language": 'English'});
+                  },
+                );
               },
-              child: const Text('Learn English'),
-            ),
-          //  SizedBox(
-          //       height: 50,
-          //       child: ListView.builder(
-          //     scrollDirection: Axis.horizontal,
-          //     padding: const EdgeInsets.all(10.0),
-          //     itemBuilder: (BuildContext context, int index) {
-          //       if (index % 2 == 0) {
-          //         return _buildCarousel(context, index ~/ 2);
-          //       } else {
-          //         return const Divider();
-          //       }
-          //     },
-          //   )),
-            TextButton(
-              style: ButtonStyle(
-                foregroundColor:
-                    MaterialStateProperty.all<Color>(Colors.blue.shade800),
-              ),
-              onPressed: () {
-                Get.toNamed('/lesson_list', parameters: {"language": "MARATHI"});
-              },
-              child: const Text('Learn Marathi'),
-            ),
-            ElevatedButton(
-              style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-              ),
-              onPressed: () {
-                Get.toNamed('/progress');
-              },
-              child: const Text('My Progress'),
-            )
-          ]),
+            )),
+        TextButton(
+          style: ButtonStyle(
+            foregroundColor:
+                MaterialStateProperty.all<Color>(Colors.blue.shade800),
+          ),
+          onPressed: () {
+            Get.toNamed('/lesson_list', parameters: {"language": "MARATHI"});
+          },
+          child: const Text('Learn Marathi'),
+        ),
+        ElevatedButton(
+          style: ButtonStyle(
+            foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+          ),
+          onPressed: () {
+            Get.toNamed('/progress');
+          },
+          child: const Text('My Progress'),
+        )
+      ]),
     );
   }
 }
@@ -78,7 +121,8 @@ Widget _buildCarousel(BuildContext context, int carouselIndex) {
       Text('Carousel $carouselIndex'),
       SizedBox(
         // you may want to use an aspect ratio here for tablet support
-        height: 100.0,
+        height: 200.0,
+        width: 300.0,
         child: PageView.builder(
           // store this controller in a State to save the carousel scroll position
           controller: PageController(viewportFraction: 0.8),
