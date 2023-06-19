@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
+import '../controllers/quiz_controller.dart';
 import './answer.dart';
 import './question.dart';
 
@@ -25,7 +28,7 @@ class Quiz extends StatelessWidget {
         ...(questions[questionIndex]['answers'] as List<Map<String, Object>>)
             .map((answer) {
           return Answer(
-              () => answerQuestion(answer['score']), answer['text'].toString());
+              () => answerQuestion(answer['score']), answer['text'].toString(), answer['score'] as int);
         }).toList()
       ],
     ); //Column

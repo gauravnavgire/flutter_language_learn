@@ -79,7 +79,7 @@ class QuizController extends GetxController {
   void answerQuestion(int score) {
   //  SchedulerBinding.instance.addPostFrameCallback((_) {
     totalScore.value += score;
-    questionIndex.value = questionIndex.value + 1;
+    questionIndex.value += 1;
   //  });
     // ignore: avoid_print
     print(questionIndex);

@@ -1,6 +1,10 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
+import '../controllers/quiz_controller.dart';
 
 class Result extends StatelessWidget {
   final int resultScore;
@@ -31,6 +35,8 @@ class Result extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final quizController = Get.find<QuizController>();
+     
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -46,7 +52,7 @@ class Result extends StatelessWidget {
             textAlign: TextAlign.center,
           ), //Text
           TextButton(
-            onPressed: resetHandler(),
+            onPressed: () {quizController.resetQuiz();},
             child: Container(
               color: Colors.green,
               padding: const EdgeInsets.all(14),

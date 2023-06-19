@@ -19,27 +19,16 @@ class QuizView extends GetView<QuizController> {
         backgroundColor: const Color.fromARGB(255, 230, 0, 88),
       ),
       body: 
-      // Padding(
-      //     padding: const EdgeInsets.all(30.0),
-      //     child: Obx(
-      //       () => quizCntlr.questionIndex < quizCntlr.questions.length
-      //           ? Quiz(
-      //               answerQuestion: quizCntlr.answerQuestion,
-      //               questionIndex: quizCntlr.questionIndex.value,
-      //               questions: quizCntlr.questions,
-      //             ) //Quiz
-      //           : Result(quizCntlr.totalScore.value, quizCntlr.resetQuiz),
-      //     )), 
-          Padding(
+         Obx(() => Padding(
           padding: const EdgeInsets.all(30.0),
-          child: quizCntlr.questionIndex < quizCntlr.questions.length
-                ? Quiz(
+          child: quizCntlr.questionIndex.value < quizCntlr.questions.length
+                ? Obx(() =>  Quiz(
                     answerQuestion: quizCntlr.answerQuestion,
                     questionIndex: quizCntlr.questionIndex.value,
                     questions: quizCntlr.questions,
-                  ) //Quiz
-                : Result(quizCntlr.totalScore.value, quizCntlr.resetQuiz),
+                  )) //Quiz
+                : Obx(() => Result(quizCntlr.totalScore.value, quizCntlr.resetQuiz)),
           ),//Padding
-    );
+    ));
   }
 }
