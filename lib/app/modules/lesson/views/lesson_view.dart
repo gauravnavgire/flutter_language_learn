@@ -18,6 +18,7 @@ class LessonView extends GetView<LessonController> {
     return Scaffold(
         appBar: AppBar(
           title: Text('Lesson Number ${lesson?.lessonNo}'),
+          backgroundColor: const Color.fromARGB(255, 230, 0, 88),
           centerTitle: true,
         ),
         body: Column(

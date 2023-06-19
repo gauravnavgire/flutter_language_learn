@@ -12,6 +12,7 @@ class LessonList extends GetView<LessonController> {
     return Scaffold(
         appBar: AppBar(
           title: Text('${langauge} Lessons'),
+          backgroundColor: const Color.fromARGB(255, 230, 0, 88),
         ),
         body: ListView.builder(
           itemCount: lessons.length,

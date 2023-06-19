@@ -15,10 +15,11 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Learn new Language'),
+        backgroundColor: const Color.fromARGB(255, 230, 0, 88),
         centerTitle: true,
       ),
       body:
-          Column(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+          Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: <Widget>[
         const Center(
             child: Text(
           'Select a Language to start learning',
@@ -27,33 +28,18 @@ class HomeView extends GetView<HomeController> {
         TextButton(
           style: ButtonStyle(
             foregroundColor:
-                MaterialStateProperty.all<Color>(Colors.blue.shade800),
+                MaterialStateProperty.all<Color>(const Color.fromARGB(255, 230, 0, 88)),
           ),
           onPressed: () {
             Get.toNamed('/lesson_list', parameters: {"language": "ENGLISH"});
           },
           child: const Text('Learn English'),
         ),
-        //  SizedBox(
-        //       height: 200,
-        //       width: 400,
-        //       child: ListView.builder(
-        //     scrollDirection: Axis.horizontal,
-        //     padding: const EdgeInsets.all(10.0),
-        //     itemBuilder: (BuildContext context, int index) {
-        //       if (index % 2 == 0) {
-        //         // return _buildCarousel(context, index ~/ 2);
-        //          return _buildCarousel(context, 1);
-        //       } else {
-        //         return const Divider();
-        //       }
-        //     },
-        //   )),
         SizedBox(
-            height: 200,
+            height: 150,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: 2,
+              itemCount: 1,
               itemBuilder: (context, index) {
                 return GestureDetector(
                   child: Padding(
@@ -77,7 +63,7 @@ class HomeView extends GetView<HomeController> {
                                 children: [
                                   Text('Quiz',
                                       style: TextStyle(fontSize: 24.0)),
-                                  Text('Quiz', style: TextStyle(fontSize: 24.0))
+                                  Text('English', style: TextStyle(fontSize: 24.0))
                                 ]),
                           ),
                         ),
@@ -93,22 +79,63 @@ class HomeView extends GetView<HomeController> {
         TextButton(
           style: ButtonStyle(
             foregroundColor:
-                MaterialStateProperty.all<Color>(Colors.blue.shade800),
+                MaterialStateProperty.all<Color>(Color.fromARGB(255, 230, 0, 88)),
           ),
           onPressed: () {
             Get.toNamed('/lesson_list', parameters: {"language": "MARATHI"});
           },
           child: const Text('Learn Marathi'),
         ),
-        ElevatedButton(
-          style: ButtonStyle(
-            foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-          ),
-          onPressed: () {
-            Get.toNamed('/progress');
-          },
-          child: const Text('My Progress'),
-        )
+                SizedBox(
+            height: 150,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 1,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: const BoxDecoration(
+                          gradient: LinearGradient(colors: [
+                        Color.fromARGB(255, 230, 0, 88),
+                        Color.fromARGB(255, 255, 64, 93)
+                      ])),
+                      child: Padding(
+                        padding: const EdgeInsets.all(1.0),
+                        child: Card(
+                          elevation: 10.0,
+                          shadowColor: Colors.amber.shade100,
+                          child: const SizedBox(
+                            width: 200,
+                            height: 400,
+                            child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('Quiz',
+                                      style: TextStyle(fontSize: 24.0)),
+                                  Text('Marathi', style: TextStyle(fontSize: 24.0))
+                                ]),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  onTap: () {
+                    Get.toNamed('/quiz', parameters: {"language": 'Marathi'});
+                  },
+                );
+              },
+            ))
+        // ElevatedButton(
+        //   style: ButtonStyle(
+        //     foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+        //   ),
+        //   onPressed: () {
+        //     Get.toNamed('/progress');
+        //   },
+        //   child: const Text('My Progress'),
+        // )
       ]),
     );
   }
@@ -122,7 +149,7 @@ Widget _buildCarousel(BuildContext context, int carouselIndex) {
       SizedBox(
         // you may want to use an aspect ratio here for tablet support
         height: 200.0,
-        width: 300.0,
+        width: 400.0,
         child: PageView.builder(
           // store this controller in a State to save the carousel scroll position
           controller: PageController(viewportFraction: 0.8),

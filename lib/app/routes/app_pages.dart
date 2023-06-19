@@ -9,7 +9,6 @@ import '../modules/progress/bindings/progress_binding.dart';
 import '../modules/progress/views/progress_view.dart';
 import '../modules/quiz/bindings/quiz_binding.dart';
 import '../modules/quiz/views/quiz_view.dart';
-import '../modules/quiz/views/quiz_view_copy.dart';
 import '../modules/vocabulary/bindings/vocabulary_binding.dart';
 import '../modules/vocabulary/views/vocabulary_view.dart';
 

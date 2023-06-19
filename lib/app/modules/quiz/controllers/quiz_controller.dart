@@ -6,48 +6,39 @@ class QuizController extends GetxController {
 
   final questions = const [
     {
-      'questionText': 'Q1. Who created Flutter?',
+      'questionText': 'Q1. Who spoke to Anna ?',
       'answers': [
-        {'text': 'Facebook', 'score': -2},
-        {'text': 'Adobe', 'score': -2},
-        {'text': 'Google', 'score': 10},
-        {'text': 'Microsoft', 'score': -2},
+        {'text': 'David', 'score': -2},
+        {'text': 'Abby', 'score': -2},
+        {'text': 'Roger', 'score': 10},
+        {'text': 'Pete', 'score': -2},
       ],
     },
     {
-      'questionText': 'Q2. What is Flutter?',
+      'questionText': 'Q2. What is xyz?',
       'answers': [
-        {'text': 'Android Development Kit', 'score': -2},
-        {'text': 'IOS Development Kit', 'score': -2},
-        {'text': 'Web Development Kit', 'score': -2},
+        {'text': 'One', 'score': -2},
+        {'text': 'Two', 'score': -2},
+        {'text': 'Three', 'score': -2},
         {
           'text':
-              'SDK to build beautiful IOS, Android, Web & Desktop Native Apps',
+              'Build xyz. Lorem ipsum.',
           'score': 10
         },
       ],
     },
     {
-      'questionText': ' Q3. Which programming language is used by Flutter',
+      'questionText': ' Q3. Lorem ipsum?',
       'answers': [
-        {'text': 'Ruby', 'score': -2},
-        {'text': 'Dart', 'score': 10},
-        {'text': 'C++', 'score': -2},
-        {'text': 'Kotlin', 'score': -2},
-      ],
-    },
-    {
-      'questionText': 'Q4. Who created Dart programming language?',
-      'answers': [
-        {'text': 'Lars Bak and Kasper Lund', 'score': 10},
-        {'text': 'Brendan Eich', 'score': -2},
-        {'text': 'Bjarne Stroustrup', 'score': -2},
-        {'text': 'Jeremy Ashkenas', 'score': -2},
+        {'text': 'ABC', 'score': -2},
+        {'text': 'XYZ', 'score': 10},
+        {'text': 'RTG', 'score': -2},
+        {'text': 'ZSJ', 'score': -2},
       ],
     },
     {
       'questionText':
-          'Q5. Is Flutter for Web and Desktop available in stable version?',
+          'Q4. Is xyz lorem ipsum?',
       'answers': [
         {
           'text': 'Yes',
